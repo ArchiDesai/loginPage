@@ -1,9 +1,9 @@
 import React from "react";
-import "../assets/loginPage.css";
+import "../assets/signupPage.css";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
-const LoginPage = () => {
+const SignUpPage = () => {
   const {
     register,
     handleSubmit,
@@ -21,6 +21,16 @@ const LoginPage = () => {
       required: {
         value: true,
         message: "*name is required",
+      },
+    },
+    emailValidation: {
+      required: {
+        value: true,
+        message: "*email is required",
+      },
+      pattern: {
+        value: /^[a-z0-9]+@[a-z]+\.[a-z]{3}$/i,
+        message: "*invalid email",
       },
     },
     passwordValidation: {
@@ -48,11 +58,30 @@ const LoginPage = () => {
         );
       },
     },
+    confirmpassValidation: {
+      required: {
+        value: true,
+        message: "*password confirmation is required",
+      },
+      // validate: (pass) => {
+      //   return (
+      //     pass === validationScheme.passwordValidation.password ||
+      //     "password do not match"
+      //   );
+      // },
+      validate: () => {
+        return (
+          validationScheme.passwordValidation.password ===
+            validationScheme.confirmpassValidation.password ||
+          "password do not match"
+        );
+      },
+    },
   };
 
   return (
     <center className="main">
-      <div className="login-container">
+      <div className="signup-container">
         <form onSubmit={handleSubmit(submitHandler)}>
           <div className="col, username">
             <input
@@ -63,6 +92,15 @@ const LoginPage = () => {
             />
             <span style={{ color: "red" }}>{errors.username?.message}</span>
           </div>
+          <div className="col, email">
+            <input
+              type="email"
+              className="form-control"
+              placeholder="Email"
+              {...register("email", validationScheme.emailValidation)}
+            />
+            <span style={{ color: "red" }}>{errors.email?.message}</span>
+          </div>
           <div className="col, password">
             <input
               type="text"
@@ -72,21 +110,29 @@ const LoginPage = () => {
             />
             <span style={{ color: "red" }}>{errors.password?.message}</span>
           </div>
+          <div className="col, confirmpass">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Confirm Password"
+              {...register(
+                "confirmpass",
+                validationScheme.confirmpassValidation
+              )}
+            />
+            <span style={{ color: "red" }}>{errors.confirmpass?.message}</span>
+          </div>
           <div className="submit">
-            <input type="submit" value="Log in" />
-            {/* <input type="button" value="Log in" /> */}
+            <input type="submit" value="Sign up" />
           </div>
         </form>
-        <div className="forgot-pass">
-          <a href="">Forgot password?</a>
-        </div>
-        <div className="signup">
-          <h6>Don't have an account?</h6>
-          <Link to="/">Sign up here</Link>
+        <div className="login">
+          <h6>Already have an account?</h6>
+          <Link to="/login">Log in here</Link>
         </div>
       </div>
     </center>
   );
 };
 
-export default LoginPage;
+export default SignUpPage;

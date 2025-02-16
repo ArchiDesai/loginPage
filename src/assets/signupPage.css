@@ -5,11 +5,11 @@
 
 .main {
   margin: auto;
-  margin-top: 27vh;
+  margin-top: 18vh;
   height: 100%;
 }
 
-.login-container {
+.signup-container {
   width: 15rem;
   height: auto;
   background-color: var(--light);
@@ -26,11 +26,35 @@
   border: 2px solid var(--dark);
 }
 
+.email {
+  margin-top: 1rem;
+}
+
+.email input {
+  padding: 0 1rem;
+  background: transparent;
+  font-size: 1.3rem;
+  font-weight: 500;
+  border: 2px solid var(--dark);
+}
+
 .password {
   margin-top: 1rem;
 }
 
 .password input {
+  padding: 0 1rem;
+  background: transparent;
+  font-size: 1.3rem;
+  font-weight: 500;
+  border: 2px solid var(--dark);
+}
+
+.confirmpass {
+  margin-top: 1rem;
+}
+
+.confirmpass input {
   padding: 0 1rem;
   background: transparent;
   font-size: 1.3rem;
@@ -53,32 +77,22 @@
   border-radius: 0.3rem;
 }
 
-.forgot-pass {
-  margin-top: 0.5rem;
+.login {
+  margin-top: 1rem;
   text-align: center;
 }
 
-.forgot-pass a {
-  color: black;
-  font-weight: 600;
-}
-
-.signup {
-  margin-top: 0.5rem;
-  text-align: center;
-}
-
-.signup h6 {
+.login h6 {
   font-weight: 400;
 }
 
-.signup a {
+.login a {
   color: black;
   font-weight: 600;
 }
 
 @media (min-width: 600px) {
-  .login-container {
+  .signup-container {
     width: 20rem;
   }
 
@@ -88,7 +102,7 @@
 }
 
 @media (min-width: 730px) {
-  .login-container {
+  .signup-container {
     width: 27rem;
   }
 
@@ -96,13 +110,13 @@
     padding: 0.2rem 10.5rem;
   }
 
-  .signup {
+  .login {
     display: flex;
     justify-content: center;
     column-gap: 0.6rem;
   }
 
-  .signup h6 {
+  .login h6 {
     padding-top: 0.2rem;
   }
 }
