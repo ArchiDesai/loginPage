@@ -69,10 +69,20 @@ const SignUpPage = () => {
       //     "password do not match"
       //   );
       // },
-      validate: () => {
+      validate: (pass) => {
+        const password = {
+          capital: /(?=.*[A-Z])/,
+          length: /(?=.{7,40}$)/,
+          specialChar: /[ -\/:-@\[-\`{-~]/,
+          digit: /(?=.*[0-9])/,
+        };
         return (
-          validationScheme.passwordValidation.password ===
-            validationScheme.confirmpassValidation.password ||
+          (password.capital.test(pass) &&
+            password.length.test(pass) &&
+            password.specialChar.test(pass) &&
+            password.digit.test(pass) &&
+            validationScheme.passwordValidation.password ===
+              validationScheme.confirmpassValidation.password) ||
           "password do not match"
         );
       },
