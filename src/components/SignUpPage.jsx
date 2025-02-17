@@ -90,9 +90,10 @@ const SignUpPage = () => {
   };
 
   return (
-    <center className="main">
+    <center className="main-container">
       <div className="signup-container">
         <form onSubmit={handleSubmit(submitHandler)}>
+          <h3>Sign Up</h3>
           <div className="col, username">
             <input
               type="text"

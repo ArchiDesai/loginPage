@@ -1,0 +1,9 @@
+.nav {
+  background-color: #a4ac86;
+}
+
+.pages {
+  display: flex;
+  justify-content: end;
+  font-weight: 500;
+}

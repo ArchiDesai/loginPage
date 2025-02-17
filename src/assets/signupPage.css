@@ -3,9 +3,9 @@
   --light: #c2c5aa;
 }
 
-.main {
+.main-container {
   margin: auto;
-  margin-top: 18vh;
+  margin-top: 13vh;
   height: 100%;
 }
 
@@ -14,7 +14,7 @@
   height: auto;
   background-color: var(--light);
   border-radius: 1rem;
-  padding: 2.5rem 1rem;
+  padding: 1.5rem 1rem;
   box-shadow: 2px 2px 12px 12px #191e14;
 }
 

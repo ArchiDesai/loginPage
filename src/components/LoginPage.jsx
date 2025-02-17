@@ -54,6 +54,7 @@ const LoginPage = () => {
     <center className="main">
       <div className="login-container">
         <form onSubmit={handleSubmit(submitHandler)}>
+          <h3>Log In</h3>
           <div className="col, username">
             <input
               type="text"
